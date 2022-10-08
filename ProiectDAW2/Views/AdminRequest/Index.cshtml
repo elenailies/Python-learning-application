@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="title">Postari in asteptare</h2>
+
+<h1 class="message">@ViewBag.Message</h1>
+
+<span class="buttonsM">
+    <a class="btn" href="/Categories/Index">Categorii</a>
+    <a class="btn" href="/Products/Index">Postari</a>
+</span>
+    <br /><br />
+
+<div class="panel panel-products div_index">
+    @foreach (var product in ViewBag.Products)
+    {
+        <div class="panel panel-product">
+            <div class="polaroid">
+                <img src="../../Files/@product.Image.ImageName" alt="Imagine postare" width="300" height="220">
+                <div class="pol">@product.Title</div>
+            </div>
+
+            <div class="button_show">
+                <a class="btn" href="/AdminRequest/Show/@product.ProductId">Afișează postarea</a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    }
+</div>

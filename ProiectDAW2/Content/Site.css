@@ -1,0 +1,449 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: white;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+button:focus, .button_class {
+    outline: 0;
+}
+
+/* DESIGN */
+
+/* Meniu */
+#menu {
+    background-color: #007d00;
+    border-bottom: 2px dotted #007d00;
+}
+
+    #menu a {
+        font-family: "Cantata One";
+        text-decoration: none;
+        font-size: 18px;
+        color: white;
+    }
+
+#logo1 {
+    font-family: "Cantata One";
+    font-size: 20px;
+    color: darkseagreen;
+}
+
+#logo a {
+    font-family: "Cantata One";
+    font-size: 20px;
+    color: white;
+}
+
+/* Index */
+
+.buttonsM a {
+    background-color: #007d00;
+    font-family: "Cantata One";
+    font: bold;
+    color: white;
+    margin-left: 13px;
+}
+
+.panel-product {
+    border: 0.1mm inset #ffffff !important;
+    background-color: #ffffff;
+}
+
+.div_index, .nav_index ul {
+    background-color: white;
+}
+
+#sort_text {
+    font-family: "Roboto Slab";
+    margin-left: 1.1rem;
+    font-size: 16px;
+    color: #c19a6b;
+}
+
+#sort_text_text {
+    color:black;
+}
+
+.dropdown {
+    background-color: #007d00;
+    border: 1px dotted #007d00;
+    height: 10%;
+}
+
+.polaroid {
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.polaroid img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:10px;
+   
+}
+
+.pol {
+    text-align: center;
+    padding: 10px 20px;
+    font-family: "Roboto Slab";
+    font-size:18px;
+}
+
+.button_show {
+    display: table;
+    margin: 0 auto;
+    background-color: #007d00;
+    margin-top: 15px;
+}
+
+    .button_show a, .Aplica_Sortarea, .input_search, .afiseaza_categ a {
+        font-family: "Cantata One";
+        color: white;
+        background-color: #007d00;
+    }
+
+        .Aplica_Sortarea button, .input_search button {
+            background-color: #007d00;
+            border-color: #007d00 !important;
+            height: 30px;
+        }
+
+.input_search input {
+    box-sizing: border-box;
+    border:none;
+    background-color: white;
+    padding-left: 7px;
+    font-family: "Roboto Slab";
+    font-size:15px;
+    margin-left: 1.1rem;
+    background-color: lightgray;
+}
+
+.title {
+    text-align: center;
+    font-family: "Cantata One";
+    font-size: 40px;
+}
+
+.message {
+    margin-left: 2rem;
+    font-family: "Hammersmith One";
+    font-size: 30px;
+    text-decoration-line: underline;
+}
+
+/* Index -> Categorii */
+
+.panel-categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 10px auto;
+    position: relative;
+    background-color: lightgray;
+}
+
+.inside {
+    margin: 10px;
+    background-color: lightgreen;
+    border: 1mm inset lightgreen !important;
+    min-width: 10rem;
+    min-height: 10rem;
+}
+
+.inside_name {
+    text-align: center;
+    font-family: "Roboto Slab";
+    font-size: 16px;
+    margin-top: 2rem;
+}
+
+.afiseaza_categ{
+    margin:2rem;
+}
+
+/* Show Categorii */
+.show_category_name {
+    text-align: center;
+    font-family: "Roboto Slab";
+    color: black;
+    font-size: 16px;
+    padding: 1rem;
+}
+
+.show_categ {
+    background-color: lightgray;
+    border: solid lightgray;
+}
+
+.footer_categ {
+    background-color: lightgray;
+    border: lightgray;
+    margin: 10px;
+}
+
+    .footer_categ a, .footer_categ button, .button_class {
+        font-family: "Cantata One";
+        color: white;
+        background-color: #007d00;
+        outline: none;
+        border: none;
+    }
+
+/* Edit + New */
+.label_class {
+    font-family: "Roboto Slab";
+    font-size: 16px;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.input_class, #input_class {
+    box-sizing: border-box;
+    padding-left: 7px;
+    font-size: 17px;
+    background-color: lightgreen;
+    border: 1mm inset lightgreen !important;
+}
+
+/* Cos de cumparaturi */
+
+.shopping_cart {
+    background-color: #9E6336;
+    border: solid #723A20;
+    margin:2%;
+    position:relative;
+}
+
+.shopping_cart img{
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 8px;
+    margin-left:10%;
+}
+
+.shopping_cart p:nth-child(2) {
+    margin-left: 30%;
+    margin-top: 5%; 
+    font-family: "Cantata One";
+    font-size:18px;
+    padding-left:30px;
+}
+
+.shopping_cart p:nth-child(3) {
+    margin-left: 30%;
+    padding: 10px 14px;
+    font-family: "Roboto Slab";
+    font-size:16px;
+    text-indent:16px;
+}
+
+.shopping_cart button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-family: "Cantata One";
+    color: #c19a6b;
+    background-color: #723A20;
+    border-radius: 1px;
+    box-shadow: 0px 0px 0px 2px rgba(217, 169, 100,0.25);
+}
+
+.viz {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-family: "Cantata One";
+    color: #c19a6b;
+    background-color: #723A20;
+    border-radius: 1px;
+    box-shadow: 0px 0px 0px 2px rgba(217, 169, 100,0.25);
+}
+
+.cant {
+    background-color: #723A20;
+}
+
+.cantitate {
+    font-family: "Roboto Slab";
+    font-size: 16px;
+    margin:3px;
+}
+
+.shop {
+    margin-left: 30%;
+    padding-left: 28px;
+    font-family: "Cantata One";
+    font-size: 16px;
+    padding-top: 12px;
+}
+
+.pret_total {
+    text-align: center;
+    font-family: "Abril Fatface";
+    font-size: 25px;
+}
+
+.but_align {
+    display: table;
+    margin: 0 auto;
+    margin-top:10px;
+}
+
+/* Order */
+.radio_class {
+    font-family: "Roboto Slab";
+    font-size: 16px;
+    padding-top: 1rem;
+}
+
+/* User */
+.username {
+    font-family: "Bree Serif";
+    font-size: 18px;
+    padding-top: 1rem;
+}
+
+.useremail, .userrole {
+    font-family: "Roboto Slab";
+    font-size: 14px;
+    padding-top: 1rem;
+}
+
+.usershow {
+    background-color: whitesmoke;
+    border: solid whitesmoke;
+}
+
+.panel-user {
+    background-color: whitesmoke;
+}
+
+.useredit {
+    margin-left: 1rem;
+    font-family: "Cantata One";
+    color: white;
+    background-color: #007d00;
+}
+
+.userdelete {
+    margin-right: 1rem;
+    font-family: "Cantata One";
+    color: white;
+    background-color: darkred;
+}
+
+.dropdown_role {
+    background-color: #007d00;
+    border: 1px dotted #007d00;
+    font-family: "Roboto Slab";
+    font-size: 16px;
+    color: white;
+}
+
+.rev {
+    background-color: whitesmoke;
+}
+
+.prod-show {
+    background-color: #007d00;
+    border: 1px dotted #007d00;
+    font-family: "Roboto Slab";
+    font-size: 16px;
+    color: white;
+}
+
+#txt {
+    font-family: "Roboto Slab";
+    font-size: 16px;
+   
+}
+
+.color_register a {
+    color: #007d00;
+    font-family: "Roboto Slab";
+    font-size: 16px;
+}
+
+.title2 {
+    font-family: "Cantata One";
+    font-size: 20px;
+    margin-top: 20px;
+    color: #007d00;
+}
+
+/* landing page */
+
+.landing1 {
+    width: 100%;
+    padding-top: 25%;
+    padding-bottom: 30%;
+    text-align: center;
+    color: green;
+    box-shadow: 0 0 8px 8px white inset;
+}
+
+.game {
+    //background-image: url("http://dailyroabox.com/wp-content/uploads/2016/11/Lined-Paper-Template-Google-Docs.jpg");
+    background-size: 100%;
+    //background-color: blue;
+    //position: absolute;
+    top: 70%;
+    left: 70%;
+    //transform: translateX(-50%)translateY(-50%);
+    text-align: center;
+}
+.game_b {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 7px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.no-click {
+    pointer-events: none;
+}
+
+.tutbtn {
+    background-color: lightgray;
+    color: white;
+    padding: 6px 12px;
+    margin-left: 13px;
+    text-align: center;
+    text-decoration: none;
+    //display: inline-block;
+    font-size: 14px;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}

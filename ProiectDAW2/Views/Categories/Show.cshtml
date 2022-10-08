@@ -1,0 +1,37 @@
+﻿@model ProiectDAW.Models.Category
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2 class="title">Categoria @Model.CategoryName</h2>
+
+<span class="buttonsM">
+    @if (ViewBag.esteAdmin || ViewBag.esteColaborator)
+    {
+        <a class="btn" href="/Categories/Index/"> Categorii</a>
+    }
+    @if (ViewBag.esteAdmin || ViewBag.esteColaborator)
+    {
+        <a class="btn" href="/Categories/New">Adaugă categorie</a> 
+        <br /><br />
+    }
+</span>
+
+
+    <div class="show_categ">
+
+        <div class="show_category_name">@Model.CategoryName</div>
+
+        @if (ViewBag.esteAdmin || ViewBag.esteColaborator)
+        {
+            <div class="panel panel-footer footer_categ">
+                <a class="btn pull-left" href="/Categories/Edit/@Model.CategoryId">Editează categoria</a>
+                <form method="post" action="/Categories/Delete/@Model.CategoryId">
+                    @Html.HttpMethodOverride(HttpVerbs.Delete)
+                    <button class="btn pull-right btn-danger" type="submit">Șterge categoria</button>
+                </form>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        }
+    </div>

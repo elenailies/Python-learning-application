@@ -1,0 +1,108 @@
+﻿@model ProiectDAW2.Models.Tut
+@{
+    ViewBag.Title = "Tutorial1";
+}
+
+<h2>Hello world!</h2>
+
+<p>Scrie primul tau "Hello world"</p>
+
+<iframe src="https://trinket.io/embed/python/247a6f8e97" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+<h3>Ce este o funcție</h3>
+<br>
+<p>Când însumați două numere, aceasta este o funcție. Când înmulți două numere, și aceasta este o funcție.</p>
+
+<p>Fiecare funcție preia intrările dvs., aplică unele reguli și returnează un rezultat.</p>
+
+<p>În exemplul de mai sus, print() este o funcție. Acceptă un șir și îl arată pe ecran.</p>
+
+<p>Python are multe funcții încorporate, cum ar fi funcția print(), pentru a le folosi în programul dumneavoastră.</p>
+
+<p>În plus, Python vă permite să vă definiți funcțiile, lucru pe care il veți învăța mai târziu.</p>
+<br><br>
+
+<h3>Verificare</h3>
+
+<p>Completeaza spatiul liber:<p>
+
+    <input type="text" class="check003" id="input001" size="15" /><text class="button002" id="check001"></text>("Hello world")
+
+
+    <div id="disappear001"><div id="center001"><button class="button001" onclick="submit001()">Submit</button></div></div>
+    <br />
+    <div id="center001"><p id="message001"></p><p id="reload001"></p></div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8">
+                <div>
+                    <form method="post" action="/Tuts/Add">
+                        <div class="panel-body">
+                            <input type="hidden" name="Rezolvat" value="1" />
+                            <!--<label>Introduceti titlul tutorialului completat</label>-->
+                            <br />
+                            <input type="hidden" name="TutName" value="1" />
+
+                            <button hidden type="submit" id="incheiati">Incheiati tutorialul</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+
+
+    <!--<textarea class="form-control input_class" name="TutName"></textarea>
+                            @Html.ValidationMessage("TutName", null, new { @class = "text-danger" })
+                            <br />-->
+    <!--<span class="buttonsM">
+
+        <a class="btn" href="/Tuts/Tutorial2">Tutorialul urmator</a>
+
+    </span>-->
+
+
+
+
+    <head id="Head1" runat="server">
+        <script type="text/javascript">
+        var g;
+        var h;
+        var i;
+        var j;
+        var k;
+
+        function submit001() {
+            b = input001.value;
+
+            if (b == "print" ) {
+                g = 1;
+                input001.value = b;
+                check001.innerHTML = "<text class=button002>" + "✔" + "</text>";
+            } else {
+                input001.value = b;
+                check001.innerHTML = "<text class=button002>" + "✖" + "</text>";
+            }
+
+
+            if (g == 1) {
+                message001.innerHTML = "Felicitari! Ati completat verificarea cu succes.";
+                disappear001.innerHTML = "";
+                //reload001.innerHTML = "<div id=center001><button class=button001 onclick=repeat001()>Repeat</button></div>";
+                //document.getElementById("incheiati").visibility = "visible";
+                document.getElementById("incheiati").removeAttribute("hidden");
+                  //document.removeAttribute("hidden");
+            }
+            document.getElementById("grade").value = grade.toString();
+        }
+
+        function repeat001() {
+            location.reload();
+        }
+
+        </script>
+    </head>

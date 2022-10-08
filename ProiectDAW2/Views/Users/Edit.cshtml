@@ -1,0 +1,38 @@
+﻿@model ProiectDAW2.Models.ApplicationUser
+
+@{
+
+    ViewBag.Title = "Editare user";
+}
+
+<h2 class="title"> Editeaza user-ul @Model.UserName </h2>
+
+@using (Html.BeginForm(actionName: "Edit", controllerName: "Users", routeValues: new { id = Model.Id }))
+{
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+
+    <br />
+
+    <i class="glyphicon glyphicon-user"></i>
+    @Html.Label("UserName", "Numele utilizatorului:", new { @class = "label_class" })
+    <br />
+    @Html.Editor("UserName", new { htmlAttributes = new { @class = "input_class" } })
+
+    <br /><br />
+
+    <i class="glyphicon glyphicon-envelope"></i>
+    @Html.Label("Email", "Emailul utilizatorului:", new { @class = "label_class" })
+    <br />
+    @Html.Editor("Email", new { htmlAttributes = new { @class = "input_class" } })
+
+    <br /><br />
+
+    <i class="glyphicon glyphicon-th-list"></i>
+    <label class="label_class">Selectați rolul:</label>
+    @Html.DropDownList("newRole", new SelectList(Model.AllRoles, "Value", "Text", ViewBag.userRole), null, new { @class = "form-control dropdown_role" })
+    <br /><br />
+    <button class="btn button_class" type="submit">Modifică datele utilizatorului</button>
+
+
+}
+

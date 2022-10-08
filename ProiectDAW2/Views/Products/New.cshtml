@@ -1,0 +1,35 @@
+﻿@model ProiectDAW.Models.Product
+
+
+<h2 class="title">Adaugare postare noua</h2>
+
+@using (Html.BeginForm(actionName: "New", controllerName: "Products"))
+{
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+    @Html.Label("Title", "Scurta descriere:")
+    <br />
+    @Html.TextBox("Title", null, new { @class = "input_class" })
+    @Html.ValidationMessage("Title", null, new { @class = "text-danger" })
+    <br /><br />
+
+
+    @Html.Label("Description", "Continut:")
+    <br />
+    @Html.TextArea("Description", null, new { @class = "input_class" })
+    @Html.ValidationMessage("Description", null, new { @class = "text-danger" })
+    <br /><br />
+
+    <label>Selectati categoria: </label>
+    @Html.DropDownListFor(m => m.CategoryId, new SelectList(Model.Categ, "Value", "Text"),
+        "Selectati categoria", new { @class = "input_class" })
+    @Html.ValidationMessage("CategoryId", null, new { @class = "text-danger" })
+    <br />
+
+    <label>Selectati o imagine: </label>
+    @Html.DropDownListFor(m => m.ImageId, new SelectList(Model.Imag, "Value", "Text"),
+        "Selectati o imagine", new { @class = "input_class" })
+    @Html.ValidationMessage("ImageId", null, new { @class = "text-danger" })
+    <br />
+    <button class="btn button_class" type="submit">Adauga postare</button>
+}

@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="title">Adaugati o poza</h2>
+
+<h3 class="message">@ViewBag.Succes</h3>
+<h4 class="message" style="color:red;">@ViewBag.Fail</h4>
+
+<span class="buttonsM">
+    <a class="btn" href="/Products/Index">Postari</a>
+    <a class="btn" href="/Categories/Index">Categorii</a>
+</span>
+
+<br /><br />
+
+@using (Html.BeginForm("Upload", "Images", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <label class = "label_class">Alegeți un fișier</label>
+    <input type="file" name="uploadedFile"/>
+    <br />
+    <input style="font-family: 'Cantata One'; color: white; background-color: #007d00; border: 1mm inset #007d00; " type="submit" value="Upload" />
+}
+
+
+

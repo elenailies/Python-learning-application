@@ -1,0 +1,23 @@
+﻿.panel-products {
+    display: grid;
+    grid-template-columns: auto;
+    padding: 20px;
+    grid-gap: 5px 5px;
+}
+
+.panel-product{
+    padding: 2px;
+}
+
+@media (min-width: 720px) {
+    .panel-products {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media (min-width: 1020px) {
+    .panel-products {
+        grid-template-columns: auto auto auto;
+    }
+}
+    

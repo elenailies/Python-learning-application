@@ -1,0 +1,138 @@
+﻿@model ProiectDAW.Models.Test
+
+@{
+    ViewBag.Title = "New";
+}
+
+<h2 class="title">Test nou</h2>
+
+@using (Html.BeginForm(actionName: "New", controllerName: "Tests"))
+{
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+    @Html.Label("TestName", "Adăugați numele testului:", new { @class = "label_class" })
+    <br />
+    @Html.TextBox("TestName", null, new { @class = "input_class" })
+    @Html.ValidationMessage("TestName", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    <br />
+
+
+    @Html.Label("intrebare_1", "Adăugați prima intrebare:", new { @class = "label_class" })
+    <br />
+    @Html.TextBox("intrebare_1", null, new { @class = "input_class" })
+    @Html.ValidationMessage("intrebare_1", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_1_1", "Adăugați prima varianta de raspuns:", new { @class = "label_class" })
+    <br />
+    @Html.TextBox("raspuns_1_1", null, new { @class = "input_class" })
+    @Html.ValidationMessage("raspuns_1_1", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_1_2", "Adăugați a doua varianta de raspuns:", new { @class = "label_class" })
+    <br />
+    @Html.TextBox("raspuns_1_2", null, new { @class = "input_class" })
+    @Html.ValidationMessage("raspuns_1_2", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_1_3", "Adăugați a treia varianta de raspuns:", new { @class = "label_class" })
+    <br />
+    @Html.TextBox("raspuns_1_3", null, new { @class = "input_class" })
+    @Html.ValidationMessage("raspuns_1_3", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_1_4", "Adăugați a patra varianta de raspuns:", new { @class = "label_class" })
+    <br />
+    @Html.TextBox("raspuns_1_4", null, new { @class = "input_class" })
+    @Html.ValidationMessage("raspuns_1_4", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_corect_1", "Introduceti numarul variantei corecte de raspuns:", new { @class = "label_class" })
+    <br />
+    @Html.TextBox("raspuns_corect_1", null, new { @class = "input_class" })
+    @Html.ValidationMessage("raspuns_corect_1", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    <br />
+
+
+    @Html.Label("intrebare_2", "Adăugați a doua intrebare:", new { @class = "label_class" })
+    <br />
+    @Html.TextBox("intrebare_2", null, new { @class = "input_class" })
+    @Html.ValidationMessage("intrebare_2", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_2_1", "Adăugați prima varianta de raspuns:", new { @class = "label_class" })
+    <br />
+    @Html.TextBox("raspuns_2_1", null, new { @class = "input_class" })
+    @Html.ValidationMessage("raspuns_2_1", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_2_2", "Adăugați a doua varianta de raspuns:", new { @class = "label_class" })
+    <br />
+    @Html.TextBox("raspuns_2_2", null, new { @class = "input_class" })
+    @Html.ValidationMessage("raspuns_2_2", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_2_3", "Adăugați a treia varianta de raspuns:", new { @class = "label_class" })
+    <br />
+    @Html.TextBox("raspuns_2_3", null, new { @class = "input_class" })
+    @Html.ValidationMessage("raspuns_2_3", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_2_4", "Adăugați a patra varianta de raspuns:", new { @class = "label_class" })
+    <br />
+    @Html.TextBox("raspuns_2_4", null, new { @class = "input_class" })
+    @Html.ValidationMessage("raspuns_2_4", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_corect_2", "Introduceti numarul variantei corecte de raspuns:", new { @class = "label_class" })
+    <br />
+    @Html.TextBox("raspuns_corect_2", null, new { @class = "input_class" })
+    @Html.ValidationMessage("raspuns_corect_2", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    <br />
+
+
+    @Html.Label("intrebare_3", "Adăugați a treia intrebare:", new { @class = "label_class" })
+    <br />
+    @Html.TextBox("intrebare_3", null, new { @class = "input_class" })
+    @Html.ValidationMessage("intrebare_3", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_3_1", "Adăugați prima varianta de raspuns:", new { @class = "label_class" })
+    <br />
+    @Html.TextBox("raspuns_3_1", null, new { @class = "input_class" })
+    @Html.ValidationMessage("raspuns_3_1", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_3_2", "Adăugați a doua varianta de raspuns:", new { @class = "label_class" })
+    <br />
+    @Html.TextBox("raspuns_3_2", null, new { @class = "input_class" })
+    @Html.ValidationMessage("raspuns_3_2", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_3_3", "Adăugați a treia varianta de raspuns:", new { @class = "label_class" })
+    <br />
+    @Html.TextBox("raspuns_3_3", null, new { @class = "input_class" })
+    @Html.ValidationMessage("raspuns_3_3", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_3_4", "Adăugați a patra varianta de raspuns:", new { @class = "label_class" })
+    <br />
+    @Html.TextBox("raspuns_3_4", null, new { @class = "input_class" })
+    @Html.ValidationMessage("raspuns_3_4", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_corect_3", "Introduceti numarul variantei corecte de raspuns:", new { @class = "label_class" })
+    <br />
+    @Html.TextBox("raspuns_corect_3", null, new { @class = "input_class" })
+    @Html.ValidationMessage("raspuns_corect_3", null, new { @class = "text-danger" })
+    <br />
+    <br />
+
+    <button class="btn button_class" type="submit">Adaugă testul</button>
+}

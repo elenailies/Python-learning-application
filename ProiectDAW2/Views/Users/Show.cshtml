@@ -1,0 +1,40 @@
+﻿@model ProiectDAW2.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Detalii utilizator";
+}
+
+<h2 class="title"> @ViewBag.Title </h2>
+
+<span class="buttonsM">
+    <a class="btn" href="/Users/Index"> Useri </a>
+</span>
+<br /><br />
+
+<div class="usershow">
+
+    <div class="panel-heading username"><i style="font-size:14px;" class="glyphicon glyphicon-user"></i> Numele utilizatorului: <strong>@Model.UserName</strong></div>
+
+    <div class="panel-body">
+
+        <i style="font-size:12px;" class="glyphicon glyphicon-envelope"></i> <span class="useremail"> Emailul utilizatorului: <strong>@Model.Email</strong></span>
+        <br />
+        <i style="font-size:12px;" class="glyphicon glyphicon-th-list"></i> <span class="userrole"> Rolul utilizatorului: <strong>@ViewBag.roleName</strong></span>
+    </div>
+
+
+        @if ((string)Model.Id != ViewBag.utilizatorCurent) // utilizatorul curent nu poate fi sters sau editat
+        {
+            <div class="panel panel-user">
+                <a class="btn button_class useredit pull-left" href="/Users/Edit/@Model.Id"> Editare utilizator</a>
+
+                @using (Html.BeginForm(actionName: "Delete", controllerName: "Users", routeValues: new { id = @Model.Id }))
+                {
+                    @Html.HttpMethodOverride(HttpVerbs.Delete)
+                    <button class="btn button_class userdelete pull-right" type="submit">Sterge utilizator</button>
+                }
+                <div class="clearfix"></div>
+            </div>
+        }
+    
+ </div>

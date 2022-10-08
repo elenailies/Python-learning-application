@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicatie de invatare a limbajului Python</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/Site.css")
+    @Styles.Render("~/Content/Paginare.css")
+    @Styles.Render("~/Content/Products.css")
+    @Styles.Render("~/Content/StarRating.css")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap&family=Abril+Fatface&display=swap&family=Hammersmith+One&display=swap&display=swap&family=Acme&display=swap&family=Fascinate+Inline&family=Lobster&display=swap&family=Roboto+Slab&display=swap&family=Podkova:wght@700&family=Cantata+One" rel="stylesheet">
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" id="menu">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span id="logo">
+                @Html.ActionLink("Acasa", "Index", "Landing", new { area = "" }, new { @class = "navbar-brand" })
+                </span>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    
+                    <li>@Html.ActionLink("Tutoriale", "Index", "Tuts")</li>
+                    <li>@Html.ActionLink("Joc", "Index", "Games")</li>
+                    <li>@Html.ActionLink("Teste", "Index", "Tests")</li>
+                    <li>@Html.ActionLink("Forum", "Index", "Products")</li>
+                    @if (User.IsInRole("Colaborator") || User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Categorii", "Index", "Categories")</li>
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        
+                        <li>@Html.ActionLink("Admin", "Index", "Admins")</li>
+                    }
+                    
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr style="height: 2px; border-width: 0; color: #007d00; background-color: #007d00 ">
+        <footer>
+            <p>&copy; @DateTime.Now.Year - <span id="logo1">Aplicatie de invatare a limbajului Python</span></p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    @Scripts.Render("~/Scripts/StarRating.js");
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+</body>
+</html>

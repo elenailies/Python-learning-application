@@ -1,0 +1,145 @@
+﻿
+@{
+    ViewBag.Title = "Tutorial2";
+}
+
+<h2>Notiuni introductive</h2>
+
+<h3>Tipuri de date</h3>
+<p>Un tip de date este o clasificare a datelor care îi spune compilatorului cum să folosească o bucată de date. Determină ce valori poate avea un obiect și operațiunile care pot fi efectuate asupra acestuia. Majoritatea limbajelor de programare acceptă tipuri de date de bază, cum ar fi numere, caractere și boolean.</p>
+
+
+<h4>În Python, există tipuri de date standard cu care copiii ar trebui să fie familiarizați:</h4>
+
+<p>Număr întreg: 20</p>
+<p>Float: 20,5</p>
+<p>Șir: „Python”</p>
+<p>Lista: [„mar”, „banana”, „cireasa”]</p>
+<p>Tuplu: („mar”, „banana”, „cireasa”)</p>
+<p>Dicționar: {“nume” : „Andrei”, „age” : 36}</p>
+
+<h4>Lista completă a tipurilor de date Python încorporate include:</h4>
+
+<p>Tipul de text: str</p>
+<p>Tipuri numerice: int, float, complex</p>
+<p>Tipuri de secvență: listă, tuplu, interval</p>
+<p>Tipul de cartografiere: dict</p>
+<p>Tipuri de set: set, frozenset</p>
+<p>Tip boolean: bool</p>
+<p>Tipuri binare: bytes, bytearray, memoryview</p>
+
+<h4>Pentru a vedea tipul de date al unui obiect, utilizați metoda type() în Python.</h4>
+
+<iframe src="https://trinket.io/embed/python/f0ab1c33ec" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+
+<h3>Variabile</h3>
+
+<p>Variabilele sunt containere care dețin o valoare, cum ar fi o bucată de text sau un număr. S-ar putea să vă amintiți aceste lucruri de la ora de matematică. Variabilele sunt puternice deoarece pot fi reutilizate și modificate cu ușurință.</p>
+
+<p>Puteți atribui o valoare unei variabile, cum ar fi x sau y, folosind semnul egal x = 5, y = „Ioan”</p>
+
+
+<h4>Numele de variabile nu pot:</h4>
+
+<p>- începe cu un număr</p>
+<p>- conține spații.</p>
+<p>- conține caractere speciale, cu excepția „_” (subliniere)</p>
+<p>- au același nume ca o altă variabilă</p>
+
+
+<h3>Funcții</h3>
+
+<p>O funcție este un bloc de cod care efectuează o acțiune atunci când este apelată.</p>
+<p>Puteți adăuga argumente pentru a transmite date într-o funcție.</p>
+<p>O funcție poate returna date ca rezultat.</p>
+
+
+<h3>Bucle</h3>
+<p>O buclă este un bloc de cod care rulează din nou și din nou. În Python există două tipuri de bucle: bucle for și bucle while.</p>
+<p>O buclă for repetă o serie de comenzi peste o secvență de date, ca o listă.</p>
+<p>O buclă while repetă o serie de comenzi atâta timp cât anumite condiții sunt adevărate.</p>
+
+
+<h3>Module</h3>
+<p>Modulele Python sunt fișiere care conțin un set de cod pe care îl puteți include în aplicația dvs. Puteți folosi modulele Python încorporate sau le puteți scrie pe ale dvs. De exemplu, puteți importa modulul matematic pentru a utiliza funcția sqrt() care există acolo, în loc să scrieți propria funcție pentru a calcula rădăcina pătrată</p>
+
+<br>
+<br>
+
+<h3>Verificare</h3>
+
+<p>Ce se va afisa pentru codul urmator?<p>
+<p>n = 5</p>
+<p>print(type(n))</p>
+
+<input type="text" class="check003" id="input001" size="15" /><text class="button002" id="check001"></text>
+
+
+<div id="disappear001"><div id="center001"><button class="button001" onclick="submit001()">Submit</button></div></div>
+<br />
+<div id="center001"><p id="message001"></p><p id="reload001"></p></div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8">
+            <div>
+                <form method="post" action="/Tuts/Add">
+                    <div class="panel-body">
+                        <input type="hidden" name="Rezolvat" value="1" />
+                        <!--<label>Introduceti titlul tutorialului completat</label>-->
+                        <br />
+                        <input type="hidden" name="TutName" value="2" />
+
+                        <button hidden type="submit" id="incheiati">Incheiati tutorialul</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
+
+
+<head id="Head1" runat="server">
+    <script type="text/javascript">
+        var g;
+        var h;
+        var i;
+        var j;
+        var k;
+
+        function submit001() {
+            b = input001.value;
+
+            if (b == "<class 'int'>") {
+                g = 1;
+                input001.value = b;
+                check001.innerHTML = "<text class=button002>" + "✔" + "</text>";
+            } else {
+                input001.value = b;
+                check001.innerHTML = "<text class=button002>" + "✖" + "</text>";
+            }
+
+
+            if (g == 1) {
+                message001.innerHTML = "Felicitari! Ati completat verificarea cu succes.";
+                disappear001.innerHTML = "";
+                //reload001.innerHTML = "<div id=center001><button class=button001 onclick=repeat001()>Repeat</button></div>";
+                //document.getElementById("incheiati").visibility = "visible";
+                document.getElementById("incheiati").removeAttribute("hidden");
+                //document.removeAttribute("hidden");
+            }
+            document.getElementById("grade").value = grade.toString();
+        }
+
+        function repeat001() {
+            location.reload();
+        }
+
+    </script>
+</head>

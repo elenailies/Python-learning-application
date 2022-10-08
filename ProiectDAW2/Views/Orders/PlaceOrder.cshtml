@@ -1,0 +1,69 @@
+﻿@model ProiectDAW2.Models.Order
+
+@{
+    ViewBag.Title = "Place order";
+}
+
+<h2 class="title">Plaseaza comanda</h2>
+
+<span class="buttonsM">
+    <a class="btn" href="/Products/Index">Continuati cumpărăturile</a>
+</span>
+
+<br /><br />
+
+@using (Html.BeginForm(actionName: "PlaceOrder", controllerName: "Orders"))
+{
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+    @Html.Label("Name", "Numele și prenumele:", new { @class = "label_class" })
+    <br />
+    @Html.TextBox("Name", null, new { @class = "input_class" })
+    @Html.ValidationMessage("Name", null, new { @class = "text-danger" })
+    <br /><br />
+
+    @Html.Label("PhoneNumber", "Numărul de telefon:", new { @class = "label_class" })
+    <br />
+    @Html.TextBox("PhoneNumber", null, new { @class = "input_class" })
+    @Html.ValidationMessage("PhoneNumber", null, new { @class = "text-danger" })
+    <br /><br />
+
+    @Html.Label("Email", "Adresa de email:", new { @class = "label_class" })
+    <br />
+    @Html.TextBox("Email", null, new { @class = "input_class" })
+    @Html.ValidationMessage("Email", null, new { @class = "text-danger" })
+    <br /><br />
+
+    @Html.Label("Region", "Județ:", new { @class = "label_class" })
+    <br />
+    @Html.TextArea("Region", null, new { @class = "input_class" })
+    @Html.ValidationMessage("Region", null, new { @class = "text-danger" })
+    <br /><br />
+
+    @Html.Label("City", "Localitate:", new { @class = "label_class" })
+    <br />
+    @Html.TextArea("City", null, new { @class = "input_class" })
+    @Html.ValidationMessage("City", null, new { @class = "text-danger" })
+    <br /><br />
+
+    @Html.Label("Address", "Adresa:", new { @class = "label_class" })
+    <br />
+    @Html.TextArea("Address", null, new { @class = "input_class" })
+    @Html.ValidationMessage("Address", null, new { @class = "text-danger" })
+    <br /><br />
+
+    @Html.Label("ZipCode", "Cod poștal:", new { @class = "label_class" })
+    <br />
+    @Html.TextArea("ZipCode", null, new { @class = "input_class" })
+    @Html.ValidationMessage("ZipCode", null, new { @class = "text-danger" })
+    <br /><br />
+
+    @Html.Label("PaymentM", "Metoda de plată:", new { @class = "label_class" })
+    <br />
+    @Html.RadioButtonFor(m => m.PaymentM, "Ramburs la primire") <span class="radio_class">Ramburs la primire</span>
+    @Html.RadioButtonFor(m => m.PaymentM, "Ordin de plata") <span class="radio_class">Ordin de plata</span>
+    @Html.ValidationMessage("PaymentM", null, new { @class = "text-danger" })
+    <br /><br />
+
+    <button class="btn button_class" type="submit">Finalizează comanda</button>
+}

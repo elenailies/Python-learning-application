@@ -1,0 +1,166 @@
+﻿@model ProiectDAW.Models.Product
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="title">Forum</h2>
+
+<h1 class="message">@ViewBag.Message</h1>
+
+
+@if (User.IsInRole("Admin") || User.IsInRole("Colaborator"))
+{
+    <span class="buttonsM">
+        <a class="btn" href="/Categories/Index">Categorii</a>
+        <a class="btn" href="/Images/Index">Adaugă imagini</a>
+        <a class="btn" href="/Products/New">Adaugă postare</a>
+    </span>
+}
+
+@if (User.IsInRole("User"))
+{
+    <span class="buttonsM">
+        <a class="btn" href="/Images/Index">Adaugă imagini</a>
+        <a class="btn" href="/Products/New">Adaugă postare</a>
+    </span>
+}
+
+<!--
+
+<iframe src="https://trinket.io/embed/python/3d8d7ce66b" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+-->
+<!------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+<div class="container search_container ">
+    <br />
+    <form class="card card-sm pull-right" style="margin-right:26px;" method="GET">
+        <div class="input-append input_search ">
+            <input type="text" name="search"
+                   value="@ViewBag.SearchString"
+                   placeholder="Caută postarea după categorie">
+            <button type="submit">
+                Caută
+            </button>
+        </div>
+    </form>
+</div>
+
+<p>Avem postari din urmatoarele categorii:</p>
+@foreach (var cat in ViewBag.Categories)
+{
+    <p>@cat.CategoryName </p>
+
+}
+
+
+
+
+<br />
+
+<!--
+
+<form action="/Products/Index" class="pull-right" style="margin-right:11px;">
+    <span id="sort_text">
+        <span id="sort_text_text">
+            Sortează după
+        </span>
+            @Html.DropDownList("OrderByString", new SelectList(
+                new List<SelectListItem>
+                {
+                    new SelectListItem { Text = "Sortare implicită", Value = "implicit"},
+                    new SelectListItem { Text = "Preț crescător", Value = "pret_crescator"},
+                    new SelectListItem { Text = "Preț descrescător", Value = "pret_descrescator"},
+                    new SelectListItem { Text = "Rating crescător", Value = "rating_crescator"},
+                    new SelectListItem { Text = "Rating descrescător", Value = "rating_descrescator"}
+                }, "Value", "Text"), new { @class = "dropdown" })
+        </span>
+    <span class="Aplica_Sortarea">
+        <button>Aplică sortarea</button>
+    </span>
+    <div class="clearfix"></div>
+</form>
+<div class="clearfix"></div>
+
+-->
+
+<br />
+<div class="panel panel-products div_index">
+    @foreach (var product in ViewBag.Products)
+    {
+        <div class="panel panel-product">
+            <div class="polaroid">
+                <img src="../../Files/@product.Image.ImageName" alt="Overview postare" width="300" height="220">
+                <div class="pol">@product.Title</div>
+            </div>
+
+            <div class="button_show">
+                <a class="btn" href="/Products/Show/@product.ProductId">Deschide postarea</a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    }
+</div>
+<div>
+    <nav class="nav_index">
+        <ul class="paginare">
+            @if (ViewBag.PaginaCurenta > 1)
+            {
+                <li class="lista_paginare">
+                    @if (ViewBag.search != "")
+                    {
+                        <a href="/Products/Index?page=1&search=@ViewBag.SearchString&OrderByString=@ViewBag.Sort" aria-label="Previous" class="link_paginare">
+                            <span aria-hidden="true">&lt;&lt;</span>
+                        </a>
+
+                    }
+                    else
+                    {
+                        <a href="/Products/Index?page=1&OrderByString=@ViewBag.Sort" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    }
+                </li>
+            }
+            @for (int i = 1; i <= ViewBag.UltimaPagina; i++)
+            {
+
+                if (ViewBag.search != "")
+                {
+                    <li class="lista_paginare">
+                        <a href="/Products/Index?page=@i&search=@ViewBag.SearchString&OrderByString=@ViewBag.Sort" class="link_paginare">@(i)</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="lista_paginare">
+                        <a href="/Products/Index?page=@i&OrderByString=@ViewBag.Sort" class="link_paginare">@(i)</a>
+                    </li>
+                }
+            }
+
+            @if (ViewBag.UltimaPagina > 1 && ViewBag.PaginaCurenta < ViewBag.UltimaPagina)
+            {
+                <li class="lista_paginare">
+                    @if (ViewBag.search != "")
+                    {
+                        <a href="/Products/Index?page=@(ViewBag.UltimaPagina)&search=@ViewBag.SearchString&OrderByString=@ViewBag.Sort" arialabel="Next" class="link_paginare">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="/Products/Index?page=@(ViewBag.UltimaPagina)&OrderByString=@ViewBag.Sort" arialabel="Next" class="link_paginare">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    }
+                </li>
+            }
+        </ul>
+    </nav>
+</div>

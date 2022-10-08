@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Crossword</title>
+</head>
+
+<body>
+
+    <style>
+        .buttons001 {
+            border: 1px solid black;
+            background-color: white;
+            color: black;
+            text-align: center;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            cursor: context-menu;
+        }
+
+        .buttons002 {
+            border: 1px solid black;
+            background-color: black;
+            color: black;
+            text-align: center;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            cursor: none;
+        }
+
+        .buttons003 {
+            background-color: white;
+            border: none;
+            color: black;
+            text-align: center;
+            display: inline-block;
+            cursor: context-menu;
+            width: 20px;
+            height: 20px;
+        }
+
+        .buttons004 {
+            font-size: 8px;
+            background-color: white;
+            border: none;
+            color: black;
+            text-align: center;
+            display: inline-block;
+            cursor: context-menu;
+        }
+
+        #font001 {
+            font-size: large;
+            color: black;
+        }
+
+        #next001 {
+            color: black;
+        }
+
+        .column001 {
+            float: left;
+            width: 40%;
+            padding: 5px;
+        }
+
+        .column002 {
+            float: left;
+            width: 40%;
+            padding: 5px;
+        }
+
+        .green001 {
+            font-size: large;
+            color: green;
+        }
+    </style>
+    <div id="disappear001">
+        <input class="buttons003" type="text" disabled="disabled" maxlength="1" /> <input class="buttons003" type="text" disabled="disabled" maxlength="1" value="1" /><input class="buttons003" type="text" disabled="disabled" maxlength="1" value="2" /><input class="buttons003" type="text" disabled="disabled" maxlength="1" value="3" /> <input class="buttons003" type="text" disabled="disabled" maxlength="1" value="4" /> <input class="buttons003" type="text" disabled="disabled" maxlength="1" value="5" /><input class="buttons003" type="text" disabled="disabled" maxlength="1" value="6" /> <input class="buttons003" type="text" disabled="disabled" maxlength="1" value="7" /><input class="buttons003" type="text" disabled="disabled" maxlength="1" value="8" /><input class="buttons003" type="text" disabled="disabled" maxlength="1" value="9" /> <input class="buttons003" type="text" disabled="disabled" maxlength="1" value="10" /><br />
+        <button class="buttons003">1</button> <input onkeydown="keyCode(event)" class="buttons001" type="text" id="names001" maxlength="1" value="01" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names002" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names003" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names004" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names005" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names006" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names007" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names008" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names009" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names010" maxlength="1" />
+        <br />
+        <button class="buttons003">2</button> <input onkeydown="keyCode(event)" class="buttons001" type="text" id="names011" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names012" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names013" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names014" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names015" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names016" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names017" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names018" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names019" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names020" maxlength="1" />
+        <br />
+        <button class="buttons003">3</button> <input onkeydown="keyCode(event)" class="buttons001" type="text" id="names021" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names022" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names023" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names024" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names025" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names026" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names027" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names028" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names029" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names030" maxlength="1" />
+        <br />
+        <button class="buttons003">4</button> <input onkeydown="keyCode(event)" class="buttons001" type="text" id="names031" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names032" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names033" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names034" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names035" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names036" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names037" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names038" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names039" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names040" maxlength="1" />
+        <br />
+        <button class="buttons003">5</button> <input onkeydown="keyCode(event)" class="buttons001" type="text" id="names041" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names042" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names043" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names044" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names045" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names046" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names047" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names048" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names049" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names050" maxlength="1" />
+        <br />
+        <button class="buttons003">6</button> <input onkeydown="keyCode(event)" class="buttons001" type="text" id="names051" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names052" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names053" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names054" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names055" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names056" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names057" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names058" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names059" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names060" maxlength="1" />
+        <br />
+        <button class="buttons003">7</button> <input onkeydown="keyCode(event)" class="buttons001" type="text" id="names061" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names062" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names063" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names064" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names065" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names066" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names067" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names068" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names069" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names070" maxlength="1" />
+        <br />
+        <button class="buttons003">8</button> <input onkeydown="keyCode(event)" class="buttons001" type="text" id="names071" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names072" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names073" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names074" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names075" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names076" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names077" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names078" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names079" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names080" maxlength="1" />
+        <br />
+        <button class="buttons003">9</button> <input onkeydown="keyCode(event)" class="buttons001" type="text" id="names081" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names082" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names083" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names084" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names085" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names086" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names087" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names088" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names089" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names090" maxlength="1" />
+        <br />
+        <button class="buttons003">10</button> <input onkeydown="keyCode(event)" class="buttons001" type="text" id="names091" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names092" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names093" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names094" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names095" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names096" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names097" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names098" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names099" maxlength="1" /><input onkeydown="keyCode(event)" class="buttons001" type="text" id="names100" maxlength="1" />
+    </div>
+    <br />
+    <hr />
+
+    <div id="next001"></div>
+    <p id="score001">Number of letters: 0 out of 100</p>
+    <div class="column001">
+        <p><strong>Cross</strong></p>
+        <text>
+            1. First clue. <text id="clue001" class="green001"></text><br />
+            Different clue (same line). <text id="clue021" class="green001"></text><br />
+            2. Second clue. <text id="clue002" class="green001"></text><br />
+            3. Third clue. <text id="clue003" class="green001"></text><br />
+            4. Fourth clue. <text id="clue004" class="green001"></text><br />
+            5. Fifth clue. <text id="clue005" class="green001"></text><br />
+            6. Sixth clue. <text id="clue006" class="green001"></text><br />
+            7. Seventh clue. <text id="clue007" class="green001"></text><br />
+            8. Eighth clue <text id="clue008" class="green001"></text>.<br />
+            9. Ninth clue. <text id="clue009" class="green001"></text><br />
+            10. Tenth clue. <text id="clue010" class="green001"></text>
+        </text>
+    </div>
+    <div class="column002">
+        <p><strong>Down</strong></p>
+        <text>
+            1. First clue. <text id="clue011" class="green001"></text><br />
+            2. Second clue. <text id="clue012" class="green001"></text><br />
+            3. Third clue. <text id="clue013" class="green001"></text><br />
+            4. Fourth clue. <text id="clue014" class="green001"></text><br />
+            5. Fifth clue. <text id="clue015" class="green001"></text><br />
+            6. Sixth clue. <text id="clue016" class="green001"></text><br />
+            7. Seventh clue. <text id="clue017" class="green001"></text><br />
+            8. Eighth clue <text id="clue018" class="green001"></text>.<br />
+            9. Ninth clue. <text id="clue019" class="green001"></text><br />
+            10. Tenth clue. <text id="clue020" class="green001"></text>
+        </text>
+    </div>
+
+    <script>
+        function keyCode(event) {
+
+            var m01 = names001.value; var m02 = names002.value; var m03 = names003.value; var m04 = names004.value; var m05 = names005.value; var m06 = names006.value; var m07 = names007.value; var m08 = names008.value; var m09 = names009.value; var m10 = names010.value;
+            var m11 = names011.value; var m12 = names012.value; var m13 = names013.value; var m14 = names014.value; var m15 = names015.value; var m16 = names016.value; var m17 = names017.value; var m18 = names018.value; var m19 = names019.value; var m20 = names020.value;
+            var m21 = names021.value; var m22 = names022.value; var m23 = names023.value; var m24 = names024.value; var m25 = names025.value; var m26 = names026.value; var m27 = names027.value; var m28 = names028.value; var m29 = names029.value; var m30 = names030.value;
+            var m31 = names031.value; var m32 = names032.value; var m33 = names033.value; var m34 = names034.value; var m35 = names035.value; var m36 = names036.value; var m37 = names037.value; var m38 = names038.value; var m39 = names039.value; var m40 = names040.value;
+            var m41 = names041.value; var m42 = names042.value; var m43 = names043.value; var m44 = names044.value; var m45 = names045.value; var m46 = names046.value; var m47 = names047.value; var m48 = names048.value; var m49 = names049.value; var m50 = names050.value;
+            var m51 = names051.value; var m52 = names052.value; var m53 = names053.value; var m54 = names054.value; var m55 = names055.value; var m56 = names056.value; var m57 = names057.value; var m58 = names058.value; var m59 = names059.value; var m60 = names060.value;
+            var m61 = names061.value; var m62 = names062.value; var m63 = names063.value; var m64 = names064.value; var m65 = names065.value; var m66 = names066.value; var m67 = names067.value; var m68 = names068.value; var m69 = names069.value; var m70 = names070.value;
+            var m71 = names071.value; var m72 = names072.value; var m73 = names073.value; var m74 = names074.value; var m75 = names075.value; var m76 = names076.value; var m77 = names077.value; var m78 = names078.value; var m79 = names079.value; var m80 = names080.value;
+            var m81 = names081.value; var m82 = names082.value; var m83 = names083.value; var m84 = names084.value; var m85 = names085.value; var m86 = names086.value; var m87 = names087.value; var m88 = names088.value; var m89 = names089.value; var m90 = names090.value;
+            var m91 = names091.value; var m92 = names092.value; var m93 = names093.value; var m94 = names094.value; var m95 = names095.value; var m96 = names096.value; var m97 = names097.value; var m98 = names098.value; var m99 = names099.value; var m100 = names100.value;
+
+            var w001 = 0; var w002 = 0; var w003 = 0; var w004 = 0; var w005 = 0; var w006 = 0; var w007 = 0; var w008 = 0; var w009 = 0; var w010 = 0;
+            var w011 = 0; var w012 = 0; var w013 = 0; var w014 = 0; var w015 = 0; var w016 = 0; var w017 = 0; var w018 = 0; var w019 = 0; var w020 = 0;
+            var w021 = 0; var w022 = 0; var w023 = 0; var w024 = 0; var w025 = 0; var w026 = 0; var w027 = 0; var w028 = 0; var w029 = 0; var w030 = 0;
+            var w031 = 0; var w032 = 0; var w033 = 0; var w034 = 0; var w035 = 0; var w036 = 0; var w037 = 0; var w038 = 0; var w039 = 0; var w040 = 0;
+            var w041 = 0; var w042 = 0; var w043 = 0; var w044 = 0; var w045 = 0; var w046 = 0; var w047 = 0; var w048 = 0; var w049 = 0; var w050 = 0;
+            var w051 = 0; var w052 = 0; var w053 = 0; var w054 = 0; var w055 = 0; var w056 = 0; var w057 = 0; var w058 = 0; var w059 = 0; var w060 = 0;
+            var w061 = 0; var w062 = 0; var w063 = 0; var w064 = 0; var w065 = 0; var w066 = 0; var w067 = 0; var w068 = 0; var w069 = 0; var w070 = 0;
+            var w071 = 0; var w072 = 0; var w073 = 0; var w074 = 0; var w075 = 0; var w076 = 0; var w077 = 0; var w078 = 0; var w079 = 0; var w080 = 0;
+            var w081 = 0; var w082 = 0; var w083 = 0; var w084 = 0; var w085 = 0; var w086 = 0; var w087 = 0; var w088 = 0; var w089 = 0; var w090 = 0;
+            var w091 = 0; var w092 = 0; var w093 = 0; var w094 = 0; var w095 = 0; var w096 = 0; var w097 = 0; var w098 = 0; var w099 = 0; var w100 = 0;
+
+            var r = event.keyCode;
+
+            if (r == 13 && m01 == "a") {
+                w001 = 1;
+                document.getElementById("names001").value = m01;
+            }
+            if (r == 13 && m02 == "b") {
+                w002 = 1;
+                document.getElementById("names002").value = m02;
+            }
+            if (r == 13 && m03 == "c") {
+                w003 = 1;
+                document.getElementById("names003").value = m03;
+            }
+
+            var check001 = w003 + w002 + w001;
+            if (check001 == 3) {
+                clue001.innerHTML = "✔";
+            }
+
+            if (r == 13 && m04 == "d") {
+                w004 = 1;
+                document.getElementById("names004").value = m04;
+            }
+            if (r == 13 && m05 == "e") {
+                w005 = 1;
+                document.getElementById("names005").value = m05;
+            }
+            if (r == 13 && m06 == "f") {
+                w006 = 1;
+                document.getElementById("names006").value = m06;
+            }
+
+            var check002 = w004 + w005;
+            if (check002 == 2) {
+                clue021.innerHTML = "✔";
+            }
+
+            if (r == 13 && m07 == "07") {
+                w007 = 1;
+                document.getElementById("names007").value = m07;
+            }
+            if (r == 13 && m08 == "08") {
+                w008 = 1;
+                document.getElementById("names008").value = m08;
+            }
+            if (r == 13 && m09 == "09") {
+                w009 = 1;
+                document.getElementById("names009").value = m09;
+            }
+            if (r == 13 && m10 == "10") {
+                w010 = 1;
+                document.getElementById("names010").value = m10;
+            }
+            if (r == 13 && m11 == "11") {
+                w011 = 1;
+                document.getElementById("names011").value = m11;
+            }
+            if (r == 13 && m12 == "12") {
+                w012 = 1;
+                document.getElementById("names012").value = m12;
+            }
+            if (r == 13 && m13 == "13") {
+                w013 = 1;
+                document.getElementById("names013").value = m13;
+            }
+            if (r == 13 && m14 == "14") {
+                w014 = 1;
+                document.getElementById("names014").value = m14;
+            }
+            if (r == 13 && m15 == "15") {
+                w015 = 1;
+                document.getElementById("names015").value = m15;
+            }
+            if (r == 13 && m16 == "16") {
+                w016 = 1;
+                document.getElementById("names016").value = m16;
+            }
+            if (r == 13 && m17 == "17") {
+                w017 = 1;
+                document.getElementById("names017").value = m17;
+            }
+            if (r == 13 && m18 == "18") {
+                w018 = 1;
+                document.getElementById("names018").value = m18;
+            }
+            if (r == 13 && m19 == "19") {
+                w019 = 1;
+                document.getElementById("names019").value = m19;
+            }
+            if (r == 13 && m20 == "20") {
+                w020 = 1;
+                document.getElementById("names020").value = m20;
+            }
+            if (r == 13 && m21 == "21") {
+                w021 = 1;
+                document.getElementById("names021").value = m21;
+            }
+            if (r == 13 && m22 == "22") {
+                w022 = 1;
+                document.getElementById("names022").value = m22;
+            }
+            if (r == 13 && m23 == "23") {
+                w023 = 1;
+                document.getElementById("names023").value = m23;
+            }
+            if (r == 13 && m24 == "24") {
+                w024 = 1;
+                document.getElementById("names024").value = m24;
+            }
+            if (r == 13 && m25 == "25") {
+                w025 = 1;
+                document.getElementById("names025").value = m25;
+            }
+            if (r == 13 && m26 == "26") {
+                w026 = 1;
+                document.getElementById("names026").value = m26;
+            }
+            if (r == 13 && m27 == "27") {
+                w027 = 1;
+                document.getElementById("names027").value = m27;
+            }
+            if (r == 13 && m28 == "28") {
+                w028 = 1;
+                document.getElementById("names028").value = m28;
+            }
+            if (r == 13 && m29 == "29") {
+                w029 = 1;
+                document.getElementById("names029").value = m29;
+            }
+            if (r == 13 && m30 == "30") {
+                w030 = 1;
+                document.getElementById("names030").value = m30;
+            }
+            if (r == 13 && m31 == "31") {
+                w031 = 1;
+                document.getElementById("names031").value = m31;
+            }
+            if (r == 13 && m32 == "32") {
+                w032 = 1;
+                document.getElementById("names032").value = m32;
+            }
+            if (r == 13 && m33 == "33") {
+                w033 = 1;
+                document.getElementById("names033").value = m33;
+            }
+            if (r == 13 && m34 == "34") {
+                w034 = 1;
+                document.getElementById("names034").value = m34;
+            }
+            if (r == 13 && m35 == "35") {
+                w035 = 1;
+                document.getElementById("names035").value = m35;
+            }
+            if (r == 13 && m36 == "36") {
+                w036 = 1;
+                document.getElementById("names036").value = m36;
+            }
+            if (r == 13 && m37 == "37") {
+                w037 = 1;
+                document.getElementById("names037").value = m37;
+            }
+            if (r == 13 && m38 == "38") {
+                w038 = 1;
+                document.getElementById("names038").value = m38;
+            }
+            if (r == 13 && m39 == "39") {
+                w039 = 1;
+                document.getElementById("names039").value = m39;
+            }
+            if (r == 13 && m40 == "40") {
+                w040 = 1;
+                document.getElementById("names040").value = m40;
+            }
+            if (r == 13 && m41 == "41") {
+                w041 = 1;
+                document.getElementById("names041").value = m41;
+            }
+            if (r == 13 && m42 == "42") {
+                w042 = 1;
+                document.getElementById("names042").value = m42;
+            }
+            if (r == 13 && m43 == "43") {
+                w043 = 1;
+                document.getElementById("names043").value = m43;
+            }
+            if (r == 13 && m44 == "44") {
+                w044 = 1;
+                document.getElementById("names044").value = m44;
+            }
+            if (r == 13 && m45 == "45") {
+                w045 = 1;
+                document.getElementById("names045").value = m45;
+            }
+            if (r == 13 && m46 == "46") {
+                w046 = 1;
+                document.getElementById("names046").value = m46;
+            }
+            if (r == 13 && m47 == "47") {
+                w047 = 1;
+                document.getElementById("names047").value = m47;
+            }
+            if (r == 13 && m48 == "48") {
+                w048 = 1;
+                document.getElementById("names048").value = m48;
+            }
+            if (r == 13 && m49 == "49") {
+                w049 = 1;
+                document.getElementById("names049").value = m49;
+            }
+            if (r == 13 && m50 == "50") {
+                w050 = 1;
+                document.getElementById("names050").value = m50;
+            }
+            if (r == 13 && m51 == "51") {
+                w051 = 1;
+                document.getElementById("names051").value = m51;
+            }
+            if (r == 13 && m52 == "52") {
+                w052 = 1;
+                document.getElementById("names052").value = m52;
+            }
+            if (r == 13 && m53 == "53") {
+                w053 = 1;
+                document.getElementById("names053").value = m53;
+            }
+            if (r == 13 && m54 == "54") {
+                w054 = 1;
+                document.getElementById("names054").value = m54;
+            }
+            if (r == 13 && m55 == "55") {
+                w055 = 1;
+                document.getElementById("names055").value = m55;
+            }
+            if (r == 13 && m56 == "56") {
+                w056 = 1;
+                document.getElementById("names056").value = m56;
+            }
+            if (r == 13 && m57 == "57") {
+                w057 = 1;
+                document.getElementById("names057").value = m57;
+            }
+            if (r == 13 && m58 == "58") {
+                w058 = 1;
+                document.getElementById("names058").value = m58;
+            }
+            if (r == 13 && m59 == "59") {
+                w059 = 1;
+                document.getElementById("names059").value = m59;
+            }
+            if (r == 13 && m60 == "60") {
+                w060 = 1;
+                document.getElementById("names060").value = m60;
+            }
+            if (r == 13 && m61 == "61") {
+                w061 = 1;
+                document.getElementById("names061").value = m61;
+            }
+            if (r == 13 && m62 == "62") {
+                w062 = 1;
+                document.getElementById("names062").value = m62;
+            }
+            if (r == 13 && m63 == "63") {
+                w063 = 1;
+                document.getElementById("names063").value = m63;
+            }
+            if (r == 13 && m64 == "64") {
+                w064 = 1;
+                document.getElementById("names064").value = m64;
+            }
+            if (r == 13 && m65 == "65") {
+                w065 = 1;
+                document.getElementById("names065").value = m65;
+            }
+            if (r == 13 && m66 == "66") {
+                w066 = 1;
+                document.getElementById("names066").value = m66;
+            }
+            if (r == 13 && m67 == "67") {
+                w067 = 1;
+                document.getElementById("names067").value = m67;
+            }
+            if (r == 13 && m68 == "68") {
+                w068 = 1;
+                document.getElementById("names068").value = m68;
+            }
+            if (r == 13 && m69 == "69") {
+                w069 = 1;
+                document.getElementById("names069").value = m69;
+            }
+            if (r == 13 && m70 == "70") {
+                w070 = 1;
+                document.getElementById("names070").value = m70;
+            }
+            if (r == 13 && m71 == "71") {
+                w071 = 1;
+                document.getElementById("names071").value = m71;
+            }
+            if (r == 13 && m72 == "72") {
+                w072 = 1;
+                document.getElementById("names072").value = m72;
+            }
+            if (r == 13 && m73 == "73") {
+                w073 = 1;
+                document.getElementById("names073").value = m73;
+            }
+            if (r == 13 && m74 == "74") {
+                w074 = 1;
+                document.getElementById("names074").value = m74;
+            }
+            if (r == 13 && m75 == "75") {
+                w075 = 1;
+                document.getElementById("names075").value = m75;
+            }
+            if (r == 13 && m76 == "76") {
+                w076 = 1;
+                document.getElementById("names076").value = m76;
+            }
+            if (r == 13 && m77 == "77") {
+                w077 = 1;
+                document.getElementById("names077").value = m77;
+            }
+            if (r == 13 && m78 == "78") {
+                w078 = 1;
+                document.getElementById("names078").value = m78;
+            }
+            if (r == 13 && m79 == "79") {
+                w079 = 1;
+                document.getElementById("names079").value = m79;
+            }
+            if (r == 13 && m80 == "80") {
+                w080 = 1;
+                document.getElementById("names080").value = m80;
+            }
+            if (r == 13 && m81 == "81") {
+                w081 = 1;
+                document.getElementById("names081").value = m81;
+            }
+            if (r == 13 && m82 == "82") {
+                w082 = 1;
+                document.getElementById("names082").value = m82;
+            }
+            if (r == 13 && m83 == "83") {
+                w083 = 1;
+                document.getElementById("names083").value = m83;
+            }
+            if (r == 13 && m84 == "84") {
+                w084 = 1;
+                document.getElementById("names084").value = m84;
+            }
+            if (r == 13 && m85 == "85") {
+                w085 = 1;
+                document.getElementById("names085").value = m85;
+            }
+            if (r == 13 && m86 == "86") {
+                w086 = 1;
+                document.getElementById("names086").value = m86;
+            }
+            if (r == 13 && m87 == "87") {
+                w087 = 1;
+                document.getElementById("names087").value = m87;
+            }
+            if (r == 13 && m88 == "88") {
+                w088 = 1;
+                document.getElementById("names088").value = m88;
+            }
+            if (r == 13 && m89 == "89") {
+                w089 = 1;
+                document.getElementById("names089").value = m89;
+            }
+            if (r == 13 && m90 == "90") {
+                w090 = 1;
+                document.getElementById("names090").value = m90;
+            }
+            if (r == 13 && m91 == "91") {
+                w091 = 1;
+                document.getElementById("names091").value = m91;
+            }
+            if (r == 13 && m92 == "92") {
+                w092 = 1;
+                document.getElementById("names092").value = m92;
+            }
+            if (r == 13 && m93 == "93") {
+                w093 = 1;
+                document.getElementById("names093").value = m93;
+            }
+            if (r == 13 && m94 == "94") {
+                w094 = 1;
+                document.getElementById("names094").value = m94;
+            }
+            if (r == 13 && m95 == "95") {
+                w095 = 1;
+                document.getElementById("names095").value = m95;
+            }
+            if (r == 13 && m96 == "96") {
+                w096 = 1;
+                document.getElementById("names096").value = m96;
+            }
+            if (r == 13 && m97 == "97") {
+                w097 = 1;
+                document.getElementById("names097").value = m97;
+            }
+            if (r == 13 && m98 == "98") {
+                w098 = 1;
+                document.getElementById("names098").value = m98;
+            }
+            if (r == 13 && m99 == "99") {
+                w099 = 1;
+                document.getElementById("names099").value = m99;
+            }
+            if (r == 13 && m100 == "100") {
+                w100 = 1;
+                document.getElementById("names100").value = m100;
+            }
+
+
+            var q = w001 + w002 + w003 + w004 + w005 + w006 + w007 + w008 + w009 + w010 +
+                        w011 + w012 + w013 + w014 + w015 + w016 + w017 + w018 + w019 + w020 +
+                        w021 + w022 + w023 + w024 + w025 + w026 + w027 + w028 + w029 + w030 +
+                        w031 + w032 + w033 + w034 + w035 + w036 + w037 + w038 + w039 + w040 +
+                        w041 + w042 + w043 + w044 + w045 + w046 + w047 + w048 + w049 + w050 +
+                        w051 + w052 + w053 + w054 + w055 + w056 + w057 + w058 + w059 + w060 +
+                        w061 + w062 + w063 + w064 + w065 + w066 + w067 + w068 + w069 + w070 +
+                        w071 + w072 + w073 + w074 + w075 + w076 + w077 + w078 + w079 + w080 +
+                        w081 + w082 + w083 + w084 + w085 + w086 + w087 + w088 + w089 + w090 +
+                        w091 + w092 + w093 + w094 + w095 + w096 + w097 + w098 + w099 + w100;
+            document.getElementById("score001").innerHTML = "Number of letters: " + q + " out of 100";
+            if (q == "100") {
+                document.getElementById("disappear001").innerHTML = "";
+                document.getElementById("next001").innerHTML = "Congratulations. You have completed this puzzle...";
+            }
+        }
+    </script>
+</body>
+</html>

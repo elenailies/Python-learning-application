@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="title">Cos de cumparaturi</h2>
+<h3 class="message">@ViewBag.message</h3>
+
+<span class="buttonsM">
+    <a class="btn" href="/Products/Index?OrderByString=@ViewBag.Sort">Înapoi la produse</a>
+</span>
+<br /><br />
+
+<div class="panel div_index">
+    @foreach (var product in ViewBag.Addedproducts)
+    {
+
+    <div class="shopping_cart">
+        <p style="float: left;"><img src="../../Files/@product.Product.Image.ImageName" alt="Cum arata produsul" width="280" height="220"></p>
+        <p>@product.Product.Title</p>
+        <p>@product.Product.Description</p>
+        @if (@product.Quantity != 1)
+        {
+            <a class="btn cant" style="margin-left: 6.65%;" href="/ShoppingCarts/DecreaseQuantity/@product.AddingId"><i style="color: #D9A964;font-size:10px;" class="glyphicon glyphicon-minus"></i></a>
+            <span class="cantitate">@product.Quantity</span>
+            <a class="btn cant" href="/ShoppingCarts/IncreaseQuantity/@product.AddingId"><i style="color: #D9A964;font-size:10px;" class="glyphicon glyphicon-plus"></i></a>
+        }
+        else
+        {
+            <span class="cantitate" style="margin-left: 7%;">@product.Quantity</span>
+            <a class="btn cant" href="/ShoppingCarts/IncreaseQuantity/@product.AddingId"><i style="color: #D9A964;font-size:10px;" class="glyphicon glyphicon-plus"></i></a>
+        }
+        <p class="shop">@product.Product.Title x @product.Quantity = @product.TotalPricePerProduct lei</p>
+        <a class="btn viz" href="/Products/Show/@product.ProductId">Vezi produsul</a>
+        <form method="post" action="/ShoppingCarts/DeleteProduct/@product.AddingId">
+            @Html.HttpMethodOverride(HttpVerbs.Delete)
+            <button class="btn btn-danger" type="submit"> Șterge din coș </button>
+        </form>
+        <div class="clearfix"></div>
+
+    </div>
+    }
+</div>
+
+<div class="pret_total">
+    <i>Preț total: <strong>@ViewBag.Total lei</strong></i>
+</div>
+<span class="buttonsM but_align">
+    @if (ViewBag.Total != "0")
+    {
+        <a class="btn" href="/Orders/PlaceOrder">Plasează comanda</a>
+    }
+</span>

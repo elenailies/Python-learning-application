@@ -1,0 +1,145 @@
+﻿@model ProiectDAW.Models.Test
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2 class="title"> Editeaza Testul @Model.TestName</h2>
+
+@using (Html.BeginForm(actionName: "Edit", controllerName: "Tests"))
+{
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+
+    @Html.Label("TestName", "Numele testului: ", new { @class = "label_class" })
+    <br />
+    @Html.Editor("TestName", null, new { htmlAttributes = new { @class = "input_class" } })
+    @Html.ValidationMessage("TestName", null, new { @class = "text-danger" })
+    <br />
+    <br />
+
+    @Html.Label("intrebare_1", "Prima intrebare: ", new { @class = "label_class" })
+    <br />
+    @Html.Editor("intrebare_1", null, new { htmlAttributes = new { @class = "input_class" } })
+    @Html.ValidationMessage("intrebare_1", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_1_1", "Prima varianta de raspuns: ", new { @class = "label_class" })
+    <br />
+    @Html.Editor("raspuns_1_1", null, new { htmlAttributes = new { @class = "input_class" } })
+    @Html.ValidationMessage("raspuns_1_1", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_1_2", "A doua varianta de raspuns: ", new { @class = "label_class" })
+    <br />
+    @Html.Editor("raspuns_1_2", null, new { htmlAttributes = new { @class = "input_class" } })
+    @Html.ValidationMessage("raspuns_1_2", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_1_3", "A treia varianta de raspuns: ", new { @class = "label_class" })
+    <br />
+    @Html.Editor("raspuns_1_3", null, new { htmlAttributes = new { @class = "input_class" } })
+    @Html.ValidationMessage("raspuns_1_3", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_1_4", "A patra varianta de raspuns: ", new { @class = "label_class" })
+    <br />
+    @Html.Editor("raspuns_1_4", null, new { htmlAttributes = new { @class = "input_class" } })
+    @Html.ValidationMessage("raspuns_1_4", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_corect_1", "Introduceti numarul variantei corecte de raspuns: ", new { @class = "label_class" })
+    <br />
+    @Html.Editor("raspuns_corect_1", null, new { htmlAttributes = new { @class = "input_class" } })
+    @Html.ValidationMessage("raspuns_corect_1", null, new { @class = "text-danger" })
+    <br />
+    <br />
+
+    @Html.Label("intrebare_2", "A doua intrebare: ", new { @class = "label_class" })
+    <br />
+    @Html.Editor("intrebare_2", null, new { htmlAttributes = new { @class = "input_class" } })
+    @Html.ValidationMessage("intrebare_2", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_2_1", "Prima varianta de raspuns: ", new { @class = "label_class" })
+    <br />
+    @Html.Editor("raspuns_2_1", null, new { htmlAttributes = new { @class = "input_class" } })
+    @Html.ValidationMessage("raspuns_2_1", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_2_2", "A doua varianta de raspuns: ", new { @class = "label_class" })
+    <br />
+    @Html.Editor("raspuns_2_2", null, new { htmlAttributes = new { @class = "input_class" } })
+    @Html.ValidationMessage("raspuns_2_2", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_2_3", "A treia varianta de raspuns: ", new { @class = "label_class" })
+    <br />
+    @Html.Editor("raspuns_2_3", null, new { htmlAttributes = new { @class = "input_class" } })
+    @Html.ValidationMessage("raspuns_2_3", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_2_4", "A patra varianta de raspuns: ", new { @class = "label_class" })
+    <br />
+    @Html.Editor("raspuns_2_4", null, new { htmlAttributes = new { @class = "input_class" } })
+    @Html.ValidationMessage("raspuns_2_4", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_corect_2", "Introduceti numarul variantei corecte de raspuns: ", new { @class = "label_class" })
+    <br />
+    @Html.Editor("raspuns_corect_2", null, new { htmlAttributes = new { @class = "input_class" } })
+    @Html.ValidationMessage("raspuns_corect_2", null, new { @class = "text-danger" })
+    <br />
+    <br />
+
+    @Html.Label("intrebare_3", "A treia intrebare: ", new { @class = "label_class" })
+    <br />
+    @Html.Editor("intrebare_3", null, new { htmlAttributes = new { @class = "input_class" } })
+    @Html.ValidationMessage("intrebare_3", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_3_1", "Prima varianta de raspuns: ", new { @class = "label_class" })
+    <br />
+    @Html.Editor("raspuns_3_1", null, new { htmlAttributes = new { @class = "input_class" } })
+    @Html.ValidationMessage("raspuns_3_1", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_3_2", "A doua varianta de raspuns: ", new { @class = "label_class" })
+    <br />
+    @Html.Editor("raspuns_3_2", null, new { htmlAttributes = new { @class = "input_class" } })
+    @Html.ValidationMessage("raspuns_3_2", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_3_3", "A treia varianta de raspuns: ", new { @class = "label_class" })
+    <br />
+    @Html.Editor("raspuns_3_3", null, new { htmlAttributes = new { @class = "input_class" } })
+    @Html.ValidationMessage("raspuns_3_3", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_3_4", "A patra varianta de raspuns: ", new { @class = "label_class" })
+    <br />
+    @Html.Editor("raspuns_3_4", null, new { htmlAttributes = new { @class = "input_class" } })
+    @Html.ValidationMessage("raspuns_3_4", null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("raspuns_corect_3", "Introduceti numarul variantei corecte de raspuns: ", new { @class = "label_class" })
+    <br />
+    @Html.Editor("raspuns_corect_3", null, new { htmlAttributes = new { @class = "input_class" } })
+    @Html.ValidationMessage("raspuns_corect_3", null, new { @class = "text-danger" })
+    <br />
+    <br />
+
+    <button class="btn button_class" type="submit">Modifică testul</button>
+}
+
+
+
+
+
+
+
+
+
+
+
+

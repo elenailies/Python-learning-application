@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="title">Categorii</h2>
+
+<h1 class="message">@ViewBag.Message</h1>
+
+<span class="buttonsM">
+    <a class="btn" href="/Products/Index">Postari</a>
+    @if (ViewBag.esteAdmin || ViewBag.esteColaborator)
+    {
+        <a class="btn" href="/Categories/New">Adaugă categorie</a>
+    }
+</span>
+<br /><br />
+
+<div class="panel panel-categories">
+    @foreach (var category in ViewBag.Categories)
+    {
+        <div class="inside">
+             <div class="inside_name"> @category.CategoryName </div>
+
+                @if (ViewBag.esteAdmin || ViewBag.esteColaborator)
+                {
+                    <div class="afiseaza_categ">
+                        <a class="btn" href="/Categories/Show/@category.CategoryId">Afișează categoria</a>
+                    </div>
+                }
+        </div>
+    }
+</div>

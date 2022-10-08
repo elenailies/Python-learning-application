@@ -1,0 +1,136 @@
+﻿
+@model ProiectDAW.Models.Product
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2 class="title">Afisare postare</h2>
+
+<h1  class="message">@ViewBag.Message</h1>
+
+<span class="buttonsM">
+    <a class="btn button_class" href="/Products/Index?OrderByString=@ViewBag.Sort">Inapoi la postari</a>
+</span>
+    <br /><br />
+    <div class="panel panel-body" style="background-color:whitesmoke" id="txt">
+        <div class="panel-heading">@Model.Title</div>
+        <div class="panel-body">
+            <img src="../../Files/@Model.Image.ImageName" alt="Img" width="300" height="220">
+            <br />
+          
+            <i class="glyphicon glyphicon-book"></i> @Model.Description
+            <br />
+            <i class="glyphicon glyphicon-tag"></i> @Model.Category.CategoryName
+            <br />
+            <i class="glyphicon glyphicon-user"></i> <i>Postarea a fost facuta de</i> <strong> @Model.User.UserName </strong>
+        </div>
+
+        @if (ViewBag.afisareButoane == true && Model.UserId == ViewBag.utilizatorCurent || ViewBag.esteAdmin)
+        {
+            <div class="panel-footer" style="background-color:lightgreen; border-top:1px solid lightgreen;">
+                <a class="btn pull-left button_class " href="/Products/Edit/@Model.ProductId">
+                    Modifica postarea
+                </a>
+                <form method="post" action="/Products/Delete/@Model.ProductId">
+                    @Html.HttpMethodOverride(HttpVerbs.Delete)
+                    <button class="btn pull-right button_class btn-danger" type="submit">
+                        Sterge aceasta postare
+                    </button>
+                </form>
+                <div class="clearfix"></div>
+            </div>
+        }
+
+    </div>
+
+  <!--  <a class="btn btn button_class" href="/ShoppingCarts/CreateShoppingCart/@Model.ProductId">Adauga in cos </a>
+
+    <br /><br />
+
+    @if (ViewBag.Rating)
+    {
+        <form>
+            <div id="div_rating" style="display: none;"> @Model.ProductId </div>
+
+            <div id="rateYo"></div>
+            <br />
+            <button id="getRating" class="btn button_class">Adauga rating-ul</button>
+        </form>
+    }
+
+    <br />
+    @foreach (var rating in @Model.Ratings)
+    {
+        <div class="container" id="txt">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div>
+                        <p> Rating dat: @rating.RatingValue/5</p>
+                        <i class="glyphicon glyphicon-user"></i> <i>Rating-ul a fost adaugat de</i> <strong> @rating.User.UserName </strong>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <hr style="height:2px;border-width:0;color:#723A20;background-color:#723A20">
+    }
+
+-->
+
+    <br />
+    @foreach (var review in @Model.Reviews)
+    {
+        <div class="container" id="txt">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div>
+                        <p>@review.ReviewContent</p>
+                        <small class="pull-right">@review.ReviewDate</small>
+                        <i class="glyphicon glyphicon-user"></i> <i>Comentariul a fost scris de</i> <strong> @review.User.UserName </strong>
+                    </div>
+                    @if (review.UserId == ViewBag.utilizatorCurent || ViewBag.esteAdmin)
+                    {
+                        <div style="display: inline-block; float : left; margin-right: 15px">
+                            <a class="glyphicon glyphicon-pencil" href="/Reviews/Edit/@review.ReviewId"></a>
+                        </div>
+                        <div style="display: inline-block; float : left">
+                            <form method="post" action="/Reviews/Delete/@review.ReviewId">
+                                @Html.HttpMethodOverride(HttpVerbs.Delete)
+                                <button class="glyphicon glyphicon-trash" style="border: none; background: transparent" type="submit"></button>
+                            </form>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <hr style="height:2px;border-width:0;color:#723A20;background-color:#723A20">
+    }
+
+    @if (User.IsInRole("Admin") || User.IsInRole("Colaborator") || User.IsInRole("User"))
+    {
+        <div class="container" >
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-8">
+                    <div>
+                        <form method="post" action="/Products/Show/@Model.ProductId">
+                            <div class="panel-body">
+                                <input type="hidden" name="ProductId" value="@Model.ProductId" />
+                                <label>Continut comentariu</label>
+                                <br />
+                                <textarea class="form-control input_class" name="ReviewContent"></textarea>
+                                @Html.ValidationMessage("ReviewContent", null, new { @class = "text-danger" })
+                                <br />
+                                <button class="btn button_class" type="submit">Adauga comentariu</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+    }

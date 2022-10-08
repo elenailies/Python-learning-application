@@ -1,0 +1,82 @@
+﻿@model ProiectDAW2.Models.Tut
+@{
+    ViewBag.Title = "Tutoriale";
+}
+
+<h2>Tutoriale</h2>
+
+<br />
+<br />
+
+
+
+<span class="buttonsM">
+
+    <a class="btn" href="/Tuts/Tutorial1">Tutorial 1</a>
+
+</span>
+<br />
+<br />
+@{
+    int ok = 0;
+    int ok2 = 0;
+}
+
+@foreach (var tut in ViewBag.Tuts)
+{
+    if (tut.TutName == "1" && tut.UserId == ViewBag.utilizatorCurent)
+    {
+        ok = 1;
+        break;
+    }
+}
+
+@foreach (var tut in ViewBag.Tuts)
+{
+    if (tut.TutName == "2" && tut.UserId == ViewBag.utilizatorCurent)
+    {
+        ok2 = 1;
+        break;
+    }
+}
+
+@if (ok == 1)
+{
+    <span class="buttonsM">
+
+        <a class="btn" href="/Tuts/Tutorial2">Tutorial 2</a>
+
+    </span>
+    <p>Hello world</p>
+}
+else
+{
+    <span class="tutbtn">
+
+        <a class="btn no-click" href="/Tuts/Tutorial2">Tutorial 2</a>
+
+    </span>
+    <p>Hello world</p>
+}
+
+@if (ok2 == 1)
+{
+    <span class="buttonsM">
+
+        <a class="btn" href="/Tuts/Tutorial3">Tutorial 3</a>
+
+    </span>
+    <p>Notiuni introductive</p>
+}
+else
+{
+    <span class="tutbtn">
+
+        <a class="btn no-click" href="/Tuts/Tutorial3">Tutorial 3</a>
+
+    </span>
+    <p>Notiuni introductive</p>
+}
+
+
+

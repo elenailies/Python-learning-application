@@ -1,0 +1,15 @@
+﻿@model ProiectDAW2.Models.Grade
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach (var grade in ViewBag.Grades)
+{
+    if (grade.UserId == ViewBag.utilizatorCurent)
+    {
+        <p>@grade.TestName</p>
+        <p>@grade.Score</p>
+    }
+}

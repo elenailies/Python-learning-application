@@ -1,0 +1,20 @@
+﻿@model ProiectDAW.Models.Category
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2 class="title"> Editeaza categoria @Model.CategoryName</h2>
+
+@using (Html.BeginForm(actionName: "Edit", controllerName: "Categories"))
+{
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+
+    @Html.Label("CategoryName", "Numele categoriei: ", new { @class = "label_class" })
+    <br />
+    @Html.Editor("CategoryName", null, new { htmlAttributes = new { @class = "input_class" } })
+    @Html.ValidationMessage("CategoryName", null, new { @class = "text-danger" })
+    <br /><br />
+    <button class="btn button_class" type="submit">Modifică categoria</button>
+}

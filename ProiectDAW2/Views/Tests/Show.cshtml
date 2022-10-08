@@ -1,0 +1,178 @@
+﻿@model ProiectDAW.Models.Test
+@{
+    ViewBag.Title = "Show";
+}
+
+<br />
+<br />
+<br />
+<br />
+
+<!-- document.getElementById("nameofid").value = "My value"; -->
+
+@if (User.IsInRole("Admin") || User.IsInRole("Colaborator"))
+{
+<span class="buttonsM">
+    
+    <a class="btn" href="/Tests/New">Adaugă test</a>
+
+    <br />
+</span>
+}
+
+
+<form hidden>
+    <input hidden type="text" id="invi1" name="fname" value="@Model.raspuns_corect_1">
+    <input type="text" id="invi2" name="lname" value="@Model.raspuns_corect_2">
+    <input type="text" id="invi3" name="lname" value="@Model.raspuns_corect_3">
+
+</form>
+
+
+<h3><strong>Test @Model.TestName</strong></h3>
+<p><strong>Introduceti raspunsurile </strong> Succes </p>
+<br />
+<p>
+    <h4>@Model.intrebare_1</h4>
+    <br />
+<p>1. @Model.raspuns_1_1</p>
+<p>2. @Model.raspuns_1_2</p>
+<p>3. @Model.raspuns_1_3</p>
+<p>4. @Model.raspuns_1_4</p>
+<br />
+    Introduceti numarul raspunsului ales
+<input type="text" class="check003" id="input001" size="15" /><text class="button002" id="check001"></text>,
+<br />
+<br />
+<h4>@Model.intrebare_2</h4>
+<br />
+<p>1. @Model.raspuns_2_1</p>
+<p>2. @Model.raspuns_2_2</p>
+<p>3. @Model.raspuns_2_3</p>
+<p>4. @Model.raspuns_2_4</p>
+<br />
+    Introduceti numarul raspunsului ales
+<input id="input002" size="15" /><text class="button002" id="check002"></text>,
+<br />
+<br />
+<h4>@Model.intrebare_3</h4>
+<br />
+<p>1. @Model.raspuns_3_1</p>
+<p>2. @Model.raspuns_3_2</p>
+<p>3. @Model.raspuns_3_3</p>
+<p>4. @Model.raspuns_3_4</p>
+<br />
+    Introduceti numarul raspunsului ales
+<input id="input003" size="15" /> <text class="button002" id="check003"></text>
+<br />
+<br />
+
+</p>
+<div id="disappear001"><div id="center001"><button class="button001" onclick="submit001()">Verifica raspunsurile</button></div></div>
+<br />
+<div id="center001"><p id="message001"></p><p id="reload001"></p></div>
+<br />
+<br />
+
+
+<!--<input id="grade" size="15" value="0" /><text class="button002"></text>-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8">
+            <div>
+                <form method="post" action="/Tests/AddGrade">
+                    <div class="panel-body">
+                        <input type="hidden" name="TestName" value="@Model.TestName" />
+                        <input id="grade" type = "hidden" size="15" value="0" name="Score" /><text class="button002"></text>
+                        <br />
+                        <button class="btn button_class" type="submit">Trimite rezultatele</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
+
+@if (User.IsInRole("Admin") || User.IsInRole("Colaborator"))
+{
+    <div class="panel panel-footer footer_categ">
+        <a class="btn pull-left" href="/Tests/Edit/@Model.TestId">Editează testul</a>
+        <form method="post" action="/Tests/Delete/@Model.TestId">
+            @Html.HttpMethodOverride(HttpVerbs.Delete)
+            <button class="btn pull-right btn-danger" type="submit">Șterge testul</button>
+        </form>
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+}
+
+<head id="Head1" runat="server">
+    <script type="text/javascript">
+        var g;
+        var h;
+        var i;
+        var j;
+        var k;
+
+        function submit001() {
+            grade = 0;
+            b = input001.value;
+            c = input002.value;
+            d = input003.value;
+            //e = input004.value;
+            //f = input005.value;
+            raspuns_corect_1 = invi1.value;
+            raspuns_corect_2 = invi2.value;
+            raspuns_corect_3 = invi3.value;
+
+            if (b == "Jerusalem" || b == raspuns_corect_1) {
+                g = 1;
+                input001.value = b;
+                check001.innerHTML = "<text class=button002>" + "✔" + "</text>";
+                grade = grade + 1;
+            } else {
+                input001.value = b;
+                check001.innerHTML = "<text class=button002>" + "✖" + "</text>";
+            }
+
+            if (c == "Amman" || c == raspuns_corect_2) {
+                h = 1
+                input002.value = c;
+                check002.innerHTML = "<text class=button002>" + "✔" + "</text>";
+                grade = grade + 1;
+            } else {
+                input002.value = c;
+                check002.innerHTML = "<text class=button002>" + "✖" + "</text>";
+            }
+
+            if (d == "London" || d == raspuns_corect_3) {
+                i = 1;
+                input003.value = d;
+                check003.innerHTML = "<text class=button002>" + "✔" + "</text>";
+                grade = grade + 1;
+            } else {
+                input003.value = d;
+                check003.innerHTML = "<text class=button002>" + "✖" + "</text>";
+            }
+
+
+            if (g == 1 && h == 1 && i == 1 /*&& j == 1 && k == 1*/) {
+                message001.innerHTML = "Felicitari! Ati completat testul cu succes.";
+                disappear001.innerHTML = "";
+                reload001.innerHTML = "<div id=center001><button class=button001 onclick=repeat001()>Repeat</button></div>";
+            }
+            document.getElementById("grade").value = grade.toString();
+        }
+
+        function repeat001() {
+            location.reload();
+        }
+
+    </script>
+</head>
+
+

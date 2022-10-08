@@ -1,0 +1,306 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Testeaza-ti cunostitele</h2>
+
+<h3>Introduce cate o litera in caseta pentru a ghici termenul. Termenul este un cuvant din domeniul programarii folosit in cadrul lectiilor.</h3>
+<h3>Succes!</h3>
+
+<div class="game">
+
+    <div id="chooseDifficulty" style="display: block">
+
+        <h1>Ghiceste termenul</h1>
+        <h5>Alege o dificultate</h5>
+        <button title="very easy" onclick="chooseDif1()" class="game_b">usor</button>
+        <button title="not difficult" onclick="chooseDif2()" class="game_b">normal</button>
+        <button title="a challenge" onclick="chooseDif3()" class="game_b">greu</button>
+
+    </div>
+
+
+    <div id="startButton" style="display: none">
+
+        <h1>Ghiceste termenul</h1>
+        <button onclick="start()" class="game_b">Start</button>
+
+
+    </div>
+
+    <div id="mainGame" style="display: none">
+
+        <p id="question"></p>
+
+        <input type="text" id="guess" maxlength="1">
+        <br>
+        <br>
+
+        <div>
+            <button onclick="enterGuess()" class="game_b">Introdu o incercare</button>
+        </div>
+
+        <br>
+        <br>
+
+    </div>
+
+    <div id="RRguess" style="display: block">
+
+        <p id="rightGuess"></p>
+        <p id="wrongGuess"></p>
+        <p id="guessesLeft"></p>
+
+    </div>
+
+    <div id="youLose" style="display: none">
+
+        <h1>Ai pierdut</h1>
+
+        <div>
+            <button onclick="restart()" class="game_b">Doresti sa joci din nou?</button>
+        </div>
+
+        <p id="correctWordWas"></p>
+
+    </div>
+
+    <div id="youWin" style="display: none">
+
+        <h2>Ai castigat</h2>
+
+        <div>
+            <button onclick="restart()" class="game_b">Doresti sa joci din nou?</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<head id="Head1" runat="server">
+    <script type="text/javascript">
+
+
+        var word = "";
+        var wordGuess = [];
+        var wrongGuess = [];
+        var guessBomb = 0;
+        var winCount = 1;
+        var guess = "";
+        var dif = 0;
+
+        function chooseDif1() {
+            dif = 1;
+            document.getElementById('startButton').style.display = 'block';
+            document.getElementById('chooseDifficulty').style.display = 'none';
+        }
+
+        function chooseDif2() {
+            dif = 2;
+            document.getElementById('startButton').style.display = 'block';
+            document.getElementById('chooseDifficulty').style.display = 'none';
+        }
+
+        function chooseDif3() {
+            dif = 3;
+            document.getElementById('startButton').style.display = 'block';
+            document.getElementById('chooseDifficulty').style.display = 'none';
+        }
+
+
+        function wordw() {
+            var randomWords = ["variabila", "afisare", "consola", "print", "citire", "sintaxa", "operator", "variabila", "afisare",
+                "consola", "print", "citire", "sintaxa", "operator", "variabila", "afisare", "consola", "print", "citire", "sintaxa",
+                "operator", "variabila", "afisare", "consola", "print", "citire", "sintaxa", "operator", "variabila", "afisare",
+                "consola", "print", "citire", "sintaxa", "operator", "variabila", "afisare", "consola", "print", "citire", "sintaxa",
+                "operator", "variabila", "afisare", "consola", "print", "citire", "sintaxa", "operator", "variabila", "afisare",
+                "consola", "print", "citire", "sintaxa", "operator", "variabila", "afisare", "consola", "print", "citire", "sintaxa",
+                "operator", "variabila", "afisare", "consola", "print", "citire", "sintaxa", "operator", "variabila", "afisare",
+                "consola", "print", "citire", "sintaxa", "operator", "variabila", "afisare", "consola", "print", "citire", "sintaxa",
+                "operator", "variabila", "afisare", "consola", "print", "citire", "sintaxa", "operator",]
+
+            var raNum = Math.floor(Math.random() * 70);
+            return randomWords[raNum]
+        }
+
+
+        function wordStart() {
+            var wordLength = word.length;
+            var wordL_ = "";
+            var count = wordLength;
+
+            while (count > 0) {
+                wordGuess.push(" _ ");
+                count -= 1;
+            }
+        }
+
+        function winCountFunc() {
+            var num = 0;
+            var lettUsed = "";
+            var count = word.length;
+
+            while (count > 0) {
+                if (lettUsed.includes(word[count - 1])) {
+
+                }
+
+                else {
+                    num += 1;
+                    lettUsed += word[count - 1];
+                }
+
+                count -= 1;
+            }
+
+            return num;
+        }
+
+        function start() {
+            word = wordw();
+            winCount = winCountFunc();
+
+            if (dif == 1) {
+                guessBomb = word.length + 5;
+            }
+
+            else if (dif == 2) {
+                guessBomb = word.length;
+            }
+
+            else if (dif == 3) {
+                if (word.length % 2 == 0) {
+                    guessBomb = word.length / 2;
+                }
+
+                else {
+                    guessBomb = (word.length - 1) / 2;
+                }
+            }
+
+            console.log(word);
+            document.getElementById('mainGame').style.display = 'block';
+            document.getElementById('startButton').style.display = 'none';
+
+            document.getElementById("question").innerHTML = "Introduceti o incercare";
+
+            wordStart();
+
+            document.getElementById('RRguess').style.display = 'block';
+            document.getElementById("rightGuess").innerHTML = "Progres termen: " + wordGuess;
+            document.getElementById("wrongGuess").innerHTML = "Incercari gresite: " + wrongGuess;
+            document.getElementById("guessesLeft").innerHTML = "Incercari ramase: " + guessBomb;
+
+            var x = document.getElementById("guess").maxLength;
+            //document.getElementById("demo").innerHTML = x;
+        }
+
+        function enterGuess() {
+            var lett = document.getElementById("guess").value;
+            document.getElementById("guess").value = "";
+
+            if (lett.length === 1) {
+                var rightOnot = isRightOnot(lett);
+                if (rightOnot == true) {
+
+                    NewCW(lett);
+                }
+
+                else {
+                    if (!wrongGuess.includes(lett)) {
+                        console.log("Bun venit");
+                        wrongGuess.push(lett);
+                    }
+                    guessBomb -= 1;
+                }
+            }
+
+            else if (lett.length < 1) {
+
+            }
+
+            else {
+                guessBomb -= 1;
+            }
+
+            if (guessBomb <= 0) {
+                gameLose()
+            }
+
+            if (winCount <= 0) {
+                gameWin()
+            }
+            document.getElementById("rightGuess").innerHTML = "Progres termen: " + wordGuess;
+            document.getElementById("wrongGuess").innerHTML = "Incercari gresite: " + wrongGuess;
+            document.getElementById("guessesLeft").innerHTML = "Incercari corecte: " + guessBomb;
+        }
+
+        function isRightOnot(a) {
+            var n = word.includes(a);
+            return n;
+        }
+
+        function NewCW(letter) {
+            var count = 0;
+            winCount -= 1
+
+            while (count <= word.length - 1) {
+                if (letter === word[count]) {
+                    if (wordGuess[count] === letter) {
+                    }
+                    else {
+                    }
+
+                    wordGuess[count] = letter;
+                    count += 1;
+                }
+
+                else {
+                    count += 1;
+                }
+
+            }
+
+        }
+
+        function gameLose() {
+            document.getElementById('mainGame').style.display = 'none';
+            document.getElementById('RRguess').style.display = 'none';
+            document.getElementById('youLose').style.display = 'block';
+            document.getElementById("correctWordWas").innerHTML = "Termenul corect este " + word;
+        }
+
+        function gameWin() {
+            document.getElementById('mainGame').style.display = 'none';
+            document.getElementById('RRguess').style.display = 'none';
+            document.getElementById('youWin').style.display = 'block';
+        }
+
+        function restart() {
+            document.getElementById('mainGame').style.display = 'none';
+            document.getElementById('RRguess').style.display = 'none';
+            document.getElementById('youLose').style.display = 'none';
+            document.getElementById('youWin').style.display = 'none';
+            document.getElementById('chooseDifficulty').style.display = 'block';
+
+            word = "";
+            wordGuess = [];
+            wrongGuess = [];
+            guessBomb = 0;
+            winCount = 1;
+            guess = "";
+            dif = 0;
+        }
+
+    </script>
+</head>
+
+
+
+
+
+
+

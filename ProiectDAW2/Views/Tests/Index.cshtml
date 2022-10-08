@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="title">Teste</h2>
+
+<h1 class="message">@ViewBag.Message</h1>
+
+
+@if (User.IsInRole("Admin") || User.IsInRole("Colaborator"))
+{
+    <span class="buttonsM">
+
+        <a class="btn" href="/Tests/New">Adauga test</a>
+
+    </span>
+<br />
+<br />
+}
+<span class="buttonsM">
+
+    <a class="btn" href="/Grades/Index">Afiseaza punctajele mele</a>
+
+</span>
+<br />
+<br />
+
+
+<div class="container search_container ">
+    <br />
+    <form class="card card-sm pull-right" style="margin-right:26px;" method="GET">
+        <div class="input-append input_search ">
+            <input type="text" name="search"
+                   value="@ViewBag.SearchString"
+                   placeholder="Caută testul după titlu">
+            <button type="submit">
+                Caută
+            </button>
+        </div>
+    </form>
+</div>
+
+
+
+<div class="panel panel-categories">
+    @foreach (var test in ViewBag.Tests)
+    {
+        <div class="inside">
+            <div class="inside_name"> @test.TestName </div>
+
+
+            <div class="afiseaza_categ">
+                <a class="btn" href="/Tests/Show/@test.TestId">Afișează testul</a>
+            </div>
+
+        </div>
+    }
+</div>
+
+
+
+
+
+
+
+

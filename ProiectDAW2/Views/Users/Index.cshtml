@@ -1,0 +1,47 @@
+﻿@{
+
+    ViewBag.Title = "Afisare utilizatori";
+}
+
+<h2 class="title">Utilizatori</h2>
+
+<h1 class="message">@ViewBag.message</h1>
+
+
+<div class="container search_container ">
+    <br />
+    <form class="card card-sm pull-right" style="margin-right:26px;" method="GET">
+        <div class="input-append input_search ">
+            <input type="text" name="search"
+                   value="@ViewBag.SearchString"
+                   placeholder="Caută utilizator după nume">
+            <button type="submit">
+                Caută
+            </button>
+        </div>
+    </form>
+</div>
+
+<br />
+<br />
+
+<div class="div_index">
+    @foreach (var user in ViewBag.UsersList)
+    {
+        <div class="panel panel-product">
+            <div class="panel-heading username"><i style="font-size:14px;" class="glyphicon glyphicon-user"></i> Numele utilizatorului: <strong>@user.UserName</strong></div>
+
+            <div class="panel-body">
+
+                <i style="font-size:12px;" class="glyphicon glyphicon-envelope"></i> <span class="useremail"> Emailul utilizatorului: <strong>@user.Email</strong></span>
+
+                <br /><br />
+
+            </div>
+
+            <div style="margin-left:11px;">
+                <a class="btn button_class" href="/Users/Show/@user.Id"> Vizualizare utilizator</a>
+            </div>
+        </div>
+    }
+</div>
