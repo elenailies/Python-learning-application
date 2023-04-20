@@ -1,5 +1,5 @@
- The application provides easy-to-understand lessons that provide the ability to run a code
-relevant, and the user has the possibility to make changes to the code for experimental purposes.
+ The application provides easy-to-understand lessons that provide the ability to run a
+relevant code, and the user has the possibility to make changes to the code for experimental purposes.
 To ensure the understanding of the knowledge, at the end of the lesson the user will complete a short
 test, and if it is completed correctly, you will be able to move on to the next lesson. For
 deepening the knowledge acquired during the lessons the user can complete tests
